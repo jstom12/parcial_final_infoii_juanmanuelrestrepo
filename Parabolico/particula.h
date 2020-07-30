@@ -23,6 +23,8 @@ public:
 
     double getPosy() const;
     double getPosx() const;
+    double getVy() const;
+    void setVy(double value);
 };
 
 #endif // PARTICULA_H

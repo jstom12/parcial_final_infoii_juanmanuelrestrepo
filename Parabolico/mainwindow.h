@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QList>
+#include <obstaculo.h>
 
 namespace Ui {
 class MainWindow;
@@ -21,12 +22,16 @@ public:
 private slots:
     void Mover();
 
+    void agregar_cuerpos_escena();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;
     QTimer *timer;
+    QTimer *agregar_cuerpos;
     particula *cuerpo;
     QList<particula*> cuerpos;
+    QList<obstaculo*> rects;
 
 };
 

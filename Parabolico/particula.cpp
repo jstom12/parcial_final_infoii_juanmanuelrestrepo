@@ -10,6 +10,16 @@ double particula::getPosx() const
     return posx;
 }
 
+double particula::getVy() const
+{
+    return vy;
+}
+
+void particula::setVy(double value)
+{
+    vy = value;
+}
+
 QRectF particula::boundingRect() const
 {
     return QRectF(-r,-r,2*r,2*r);
@@ -51,8 +61,5 @@ void particula::CalcularVelicidad()
     vy=vel*sin(angulo)-g*delta;
     vel=sqrt(vy*vy+vx*vx);
     angulo=atan2(vy,vx);
-
-    if(posy+r<=0)
-        vy=-vy;
 
 }

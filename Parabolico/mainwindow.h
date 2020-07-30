@@ -6,6 +6,9 @@
 #include <QTimer>
 #include <QList>
 #include <obstaculo.h>
+#include<stdlib.h>
+#include<time.h>
+
 
 namespace Ui {
 class MainWindow;
@@ -32,6 +35,7 @@ private:
     particula *cuerpo;
     QList<particula*> cuerpos;
     QList<obstaculo*> rects;
+    obstaculo *eliminacion;
 
 };
 

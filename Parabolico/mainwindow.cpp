@@ -20,10 +20,13 @@ MainWindow::MainWindow(QWidget *parent) :
     rects.push_back(new obstaculo (-300,-60,20,80));
     Scene->addItem(rects.back());
 
+    eliminacion = new obstaculo (0,-100,10,390);
+    Scene->addItem(eliminacion);
+
     connect(timer,SIGNAL(timeout()),this,SLOT(Mover()));
     connect(agregar_cuerpos,SIGNAL(timeout()),this,SLOT(agregar_cuerpos_escena()));
     timer->start(30);
-    agregar_cuerpos->start(100);
+    agregar_cuerpos->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -53,11 +56,18 @@ void MainWindow::Mover()
             }
         }
     }
+
 }
 
 void MainWindow::agregar_cuerpos_escena()
 {
-    cuerpos.push_back(new particula((35/180)*3.1415, 100, 100, 50));
+    int an, x , y , velocidad;
+    srand(time(NULL));
+    x = 1+rand()%(101-1);
+    y = 1+rand()%(101-1);
+    an = 1+rand()%50;
+    velocidad = 1+rand()%(101-1);
+    cuerpos.push_back(new particula((an/180)*3.1415, x, y, velocidad));
     Scene->addItem(cuerpos.back());
 }
 

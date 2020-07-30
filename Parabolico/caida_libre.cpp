@@ -25,6 +25,6 @@ void caida_libre::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 
 void caida_libre::caida()
 {
-    posy -= 5;
+    posy += 5;
     setPos(posx,posy);
 }

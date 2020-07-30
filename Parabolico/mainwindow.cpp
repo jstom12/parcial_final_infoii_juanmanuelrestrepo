@@ -17,11 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     rects.push_back(new obstaculo (-60,-60,20,80));
     Scene->addItem(rects.back());
-    rects.push_back(new obstaculo (-300,-60,20,80));
+    rects.push_back(new obstaculo (-300,-60,20,60));
     Scene->addItem(rects.back());
 
     eliminacion = new obstaculo (0,-100,10,390);
     Scene->addItem(eliminacion);
+    lat_der = new obstaculo (-380,180,290,10);
+    Scene->addItem(lat_der);
+    lat_izq = new obstaculo (0,180,290,10);
+    Scene->addItem(lat_izq);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(Mover()));
     connect(agregar_cuerpos,SIGNAL(timeout()),this,SLOT(agregar_cuerpos_escena()));
@@ -53,6 +57,18 @@ void MainWindow::Mover()
             {
                 (*it)->setVy(-(*it)->getVy());
                 (*it)->ActualizarPosicion();
+            }
+            if((*it)->collidesWithItem(eliminacion))
+            {
+                int pos = cuerpos.indexOf((*it));
+                Scene->removeItem(cuerpos.at(pos));
+                cuerpos.removeAt(pos);
+                return;
+            }
+            if((*it)->collidesWithItem(lat_der) || ((*it)->collidesWithItem(lat_izq)))
+            {
+               (*it)->setVx(-(*it)->getVx());
+               (*it)->ActualizarPosicion();
             }
         }
     }

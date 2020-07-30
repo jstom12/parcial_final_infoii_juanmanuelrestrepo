@@ -20,6 +20,16 @@ void particula::setVy(double value)
     vy = value;
 }
 
+double particula::getVx() const
+{
+    return vx;
+}
+
+void particula::setVx(double value)
+{
+    vx = value;
+}
+
 QRectF particula::boundingRect() const
 {
     return QRectF(-r,-r,2*r,2*r);

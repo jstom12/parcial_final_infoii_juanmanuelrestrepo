@@ -36,6 +36,8 @@ private:
     QList<particula*> cuerpos;
     QList<obstaculo*> rects;
     obstaculo *eliminacion;
+    obstaculo *lat_der;
+    obstaculo *lat_izq;
 
 };
 

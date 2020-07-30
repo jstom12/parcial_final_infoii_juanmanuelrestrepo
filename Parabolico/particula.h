@@ -25,6 +25,8 @@ public:
     double getPosx() const;
     double getVy() const;
     void setVy(double value);
+    double getVx() const;
+    void setVx(double value);
 };
 
 #endif // PARTICULA_H

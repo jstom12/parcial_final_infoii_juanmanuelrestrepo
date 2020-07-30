@@ -24,12 +24,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    caida_libre.cpp \
         main.cpp \
         mainwindow.cpp \
     obstaculo.cpp \
     particula.cpp
 
 HEADERS += \
+    caida_libre.h \
         mainwindow.h \
     obstaculo.h \
     particula.h

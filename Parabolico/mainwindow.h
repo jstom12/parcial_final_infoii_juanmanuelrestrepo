@@ -8,6 +8,7 @@
 #include <obstaculo.h>
 #include<stdlib.h>
 #include<time.h>
+#include <caida_libre.h>
 
 
 namespace Ui {
@@ -27,6 +28,8 @@ private slots:
 
     void agregar_cuerpos_escena();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *Scene;
@@ -35,9 +38,11 @@ private:
     particula *cuerpo;
     QList<particula*> cuerpos;
     QList<obstaculo*> rects;
+    QList<caida_libre*> caidas;
     obstaculo *eliminacion;
     obstaculo *lat_der;
     obstaculo *lat_izq;
+
 
 };
 

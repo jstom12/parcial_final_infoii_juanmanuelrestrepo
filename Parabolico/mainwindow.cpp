@@ -42,6 +42,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::Mover()
 {
+    for(QList<caida_libre*>::iterator it_1=caidas.begin();it_1!=caidas.end();it_1++)
+    {
+        (*it_1)->caida();
+    }
     for(QList<particula*>::iterator it=cuerpos.begin(); it!=cuerpos.end();it++)
     {
         (*it)->CalcularVelicidad();
@@ -87,3 +91,12 @@ void MainWindow::agregar_cuerpos_escena()
     Scene->addItem(cuerpos.back());
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    int x= ui->lineEdit->text().toDouble();
+    int y= ui->lineEdit_2->text().toDouble();
+    caidas.push_back(new caida_libre (x,y));
+    Scene->addItem(caidas.back());
+
+}
